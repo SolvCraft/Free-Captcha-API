@@ -2,7 +2,7 @@
 
 The **Free Open-Source Captcha API** is a lightning-fast, stateless Captcha service built on Cloudflare's global edge network. Protect your login, signup, and contact forms from bots — completely free, forever.
 
-🌐 **Live API:** [https://captcha-api.solvcraft.workers.dev](https://captcha-api.solvcraft.workers.dev)
+🌐 **Live API:** [https://captcha-api.solvcraft.workers.dev](https://captcha-api.solvcraft.workers.dev) <br>
 📖 **Interactive Docs:** [https://captcha-api.solvcraft.workers.dev/docs](https://captcha-api.solvcraft.workers.dev/docs)
 
 ---
@@ -70,25 +70,6 @@ Tokens are structured as `base64(timestamp).HMAC(answer:timestamp, secret)` — 
 | `POST` | `/verify`   | Validates the token and user's answer |
 | `GET`  | `/docs`     | Interactive Swagger UI |
 | `GET`  | `/openapi.json` | OpenAPI 3.0 specification |
-
----
-
-## Self-Hosting in 5 Minutes
-
-```bash
-git clone https://github.com/SolvCraft/Free-Captcha-API.git
-cd Free-Captcha-API
-npm install
-npx wrangler d1 create caa_db
-# Paste the database_id into wrangler.toml
-npx wrangler d1 execute caa_db --remote --file=./schema.sql
-npx wrangler deploy
-```
-
-Set your secret key (strongly recommended for production):
-```bash
-npx wrangler secret put CAPTCHA_SECRET
-```
 
 ---
 
